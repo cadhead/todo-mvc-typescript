@@ -5,6 +5,8 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   globals: {
     Atomics: 'readonly',
