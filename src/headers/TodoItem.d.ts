@@ -1,6 +1,6 @@
-interface TodoItem {
+type TodoItem = {
   id: string,
   name: string,
   description: string,
-  isDone: boolean
+  done?: boolean
 }
