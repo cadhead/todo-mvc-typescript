@@ -1,3 +1,4 @@
-const test: string = 'something else';
+import TodoList from "./List";
 
-document.write(test);
+const todo = new TodoList();
+console.log(todo);
