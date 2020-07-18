@@ -1,4 +1,4 @@
-import Store from "./Store";
+import Store from './Store';
 
 class TodoList {
   store: Store;
@@ -7,8 +7,8 @@ class TodoList {
   constructor() {
     this.store = new Store();
     this.handles = {
-      "Add": this.addItem.bind(this),
-    }
+      'Add': this.addItem.bind(this),
+    };
   }
 
   addItem(name: string, description: string) {
