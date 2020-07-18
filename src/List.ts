@@ -1,7 +1,15 @@
 import Store from "./Store";
 
 class TodoList {
-  store = new Store();
+  store: Store;
+  handles: Object;
+
+  constructor() {
+    this.store = new Store();
+    this.handles = {
+      "Add": this.addItem.bind(this),
+    }
+  }
 
   addItem(name: string, description: string) {
     this.store.insert({
