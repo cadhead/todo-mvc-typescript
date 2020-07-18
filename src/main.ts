@@ -1,8 +1,4 @@
-import TodoList from "./List";
 import App from './App';
-
-const todo: TodoList = new TodoList();
-Object.assign(window, {todo: todo});
 
 const app = async () => {
   let root = document.getElementById('root');

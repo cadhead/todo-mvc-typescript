@@ -1,10 +1,13 @@
 import TodoComponent from './components/TodoComponent';
+import TodoList from "./List";
+
+const todoList: TodoList = new TodoList();
 
 async function App() {
   const template = document.createElement('template');
   template.innerHTML = `
     <div class="container">
-      ${TodoComponent()}
+      ${TodoComponent(todoList.store.state)}
     </div>
   `;
   return template.content.cloneNode(true);
