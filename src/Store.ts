@@ -15,10 +15,10 @@ class Store {
   }
 
   removeItem(id: string) {
-    let todo = this.state.find(item => item.id === id);
+    let item = this.state.find(item => item.id === id);
 
-    return todo 
-      ? this.state.splice(this.state.indexOf(todo), 1)
+    return item 
+      ? this.state.splice(this.state.indexOf(item), 1)
       : false;
   }
 }
