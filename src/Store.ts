@@ -1,7 +1,7 @@
 class Store {
   state: Array<TodoItem> = [];
   
-  addItem(item: TodoItem) {
+  insert(item: TodoItem) {
     const { id, name, description } = item;
 
     let todoItem: TodoItem = {
@@ -14,12 +14,16 @@ class Store {
     this.state.push(todoItem);
   }
 
-  removeItem(id: string) {
+  remove(id: string) {
     let item = this.state.find(item => item.id === id);
 
     return item 
       ? this.state.splice(this.state.indexOf(item), 1)
       : false;
+  }
+
+  update(id: string) {
+    // ...
   }
 }
 
