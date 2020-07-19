@@ -3,15 +3,16 @@ import TodoItemTemplate from './templates/TodoItemTemplate';
 
 class Template {
   elements: Elements;
+  count: Number = 0;
 
   private $root: Element;
 
   constructor(root: Element) {
-    root.innerHTML = TodoListTemplate();
-
     this.$root = root;
+    this.$root.innerHTML = TodoListTemplate();
     this.elements = {
-      newTodoName: root.querySelector('#newTodo') as HTMLElement,
+      newTodoName: this.$root.querySelector('#newTodoName') as HTMLElement,
+      todoListEmpty: this.$root.querySelector('#todoListEmpty') as HTMLElement,
       items: []
     };
   }
@@ -19,7 +20,12 @@ class Template {
   update(state: Array<TodoItem>) {
     const todoItems = this.$root.querySelector('#todoList') as HTMLElement;
     const input = <HTMLInputElement>this.elements.newTodoName;
-    const { items: itemsElements } = this.elements;
+    const { items: itemsElements, todoListEmpty } = this.elements;
+
+    this.count = state.length;  
+    this.count
+      ? todoListEmpty.classList.add('is-hidden')
+      : todoListEmpty.classList.remove('is-hidden');
 
     state.forEach(item => {
       const element = todoItems.querySelector(`li[data-id='${item.id}']`);
