@@ -1,4 +1,4 @@
 type Elements = {
-  newTodo: Element,
+  newTodoName: Element,
   items: Array<Element>
 }
