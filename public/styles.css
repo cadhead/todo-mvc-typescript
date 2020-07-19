@@ -1,0 +1,8 @@
+.card.is-completed > * {
+  opacity: 0.5;
+}
+
+.button-status {
+  align-self: center;
+  margin-right: 0.75rem;
+}
