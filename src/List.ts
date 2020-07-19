@@ -10,10 +10,14 @@ class List {
   }
 
   bindHandlers(handlers: Handlers, state: Array<TodoItem>) {
-    const { newTodoName: newTodo } = this.template.elements;
+    const { newTodoName } = this.template.elements;
 
-    newTodo.addEventListener('change', ({ target }) => {
-      const element = target as HTMLTextAreaElement;
+    newTodoName.addEventListener('keypress', (ev) => {
+      const { target, keyCode } = ev as KeyboardEvent;
+      
+      if (keyCode !== 13) return;
+
+      const element = target as HTMLInputElement;
       const name = element.value.trim();
 
       if (name) {
