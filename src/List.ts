@@ -9,16 +9,17 @@ class List {
     );
   }
 
-  bindHandlers(handlers: Handlers) {
-    const { newTodo } = this.template.elements;
+  bindHandlers(handlers: Handlers, state: Array<TodoItem>) {
+    const { newTodoName: newTodo } = this.template.elements;
 
     newTodo.addEventListener('change', ({ target }) => {
       const element = target as HTMLTextAreaElement;
-      const name = element.value;
+      const name = element.value.trim();
 
-      return name
-        ? handlers['Add'](name, 'something')
-        : false;
+      if (name) {
+        handlers['Add'](name);
+        this.template.update(state);
+      }
     });
   }
 }

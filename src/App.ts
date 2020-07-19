@@ -15,17 +15,15 @@ class TodoList {
       'Add': this.addItem.bind(this),
     };
 
-    this.list.bindHandlers(this.handles);
+    this.list.bindHandlers(this.handles, this.store.state);
   }
 
   addItem(name: string, description: string) {
     this.store.insert({
       id: Date.now().toString(),
       name,
-      description
+      description: description || 'No description provided'
     });
-
-    this.list.template.update(this.store.state);
   }
 }
 
