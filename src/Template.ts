@@ -22,7 +22,7 @@ class Template {
     const input = <HTMLInputElement>this.elements.newTodoName;
     const { items: itemsElements, todoListEmpty } = this.elements;
 
-    this.count = state.length;  
+    this.count = state.length;
     this.count
       ? todoListEmpty.classList.add('is-hidden')
       : todoListEmpty.classList.remove('is-hidden');
