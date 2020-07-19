@@ -1,23 +1,26 @@
-import Store from './Store';
+import Template from './Template';
 
-class TodoList {
-  store: Store;
-  handles: Object;
+class List {
+  template: Template;
 
   constructor() {
-    this.store = new Store();
-    this.handles = {
-      'Add': this.addItem.bind(this),
-    };
+    this.template = new Template(
+      document.querySelector('#root') as HTMLElement
+    );
   }
 
-  addItem(name: string, description: string) {
-    this.store.insert({
-      id: Date.now().toString(),
-      name,
-      description
+  bindHandlers(handlers: Handlers) {
+    const { newTodo } = this.template.elements;
+
+    newTodo.addEventListener('change', ({ target }) => {
+      const element = target as HTMLTextAreaElement;
+      const name = element.value;
+
+      return name
+        ? handlers['Add'](name, 'something')
+        : false;
     });
   }
 }
 
-export default TodoList;
+export default List;
