@@ -6,7 +6,7 @@ class Store {
   }
 
   remove(id: string) {
-    let item = this.state.find(item => item.id === id);
+    const item = this.state.find(item => item.id === id);
 
     return item 
       ? this.state.splice(this.state.indexOf(item), 1)
